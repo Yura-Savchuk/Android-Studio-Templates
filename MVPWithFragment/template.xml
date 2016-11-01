@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="3"
+    name="MVP (With Fragment)"
+    description="Create new empty EntityView, EntityViewFragment and EntityPresenter with CoulCod mpv rules."
+    minApi="7"
+    minBuildApi="8">
+
+    <category value="CoulCod" />
+
+    <dependency name="android-support-v4" revision="8" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <parameter
+        id="viewName"
+        type="string"
+        constraints="nonempty|class|unique"
+        suggest="${extractLetters(objectKind)}View, ${extractLetters(objectKind)}ViewFragment, ${extractLetters(objectKind)}Presenter."
+        name="Fragment class name" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>templates_mvp_with_fragment.png</thumb>
+    </thumbs>
+
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
